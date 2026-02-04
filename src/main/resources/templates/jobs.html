@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- LOAD HEAD -->
+<div th:replace="fragments/header :: Header"></div>
+
+<body class="bg-light">
+
+<!-- LOAD NAVBAR -->
+<div th:replace="fragments/navbar :: NavBar"></div>
+
+<div th:replace="fragments/joblist :: JobList"></div>
+<!-- LOAD FOOTER -->
+<div th:replace="fragments/footer :: Footer"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Filter JS -->
+<script>
+    function filterJobs() {
+     const searchText = document.getElementById('jobSearch').value.toLowerCase();
+     const selectedCompany = document.getElementById('companyFilter').value.toLowerCase();
+     const selectedLocation = document.getElementById('locationFilter').value.toLowerCase();
+     const selectedJobType = document.getElementById('jobTypeFilter').value.toLowerCase();
+
+     const jobs = document.querySelectorAll('#jobsContainer .job-card');
+
+     jobs.forEach(job => {
+         const title = job.getAttribute('data-title').toLowerCase();
+         const company = job.getAttribute('data-company').toLowerCase();
+         const location = job.getAttribute('data-location').toLowerCase();
+         const jobType = job.getAttribute('data-jobtype').toLowerCase();
+
+         const matchesTitle = title.includes(searchText);
+         const matchesCompany = selectedCompany === "" || company === selectedCompany;
+         const matchesLocation = selectedLocation === "" || location === selectedLocation;
+         const matchesJobType = selectedJobType === "" || jobType === selectedJobType;
+
+         if (matchesTitle && matchesCompany && matchesLocation && matchesJobType) {
+             job.style.display = '';
+         } else {
+             job.style.display = 'none';
+         }
+     });
+ }
+
+</script>
+
+</body>
+</html>

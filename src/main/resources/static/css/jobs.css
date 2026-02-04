@@ -1,0 +1,26 @@
+body {
+background-color: #f8f9fa;
+}
+
+.job-card {
+border-radius: 12px;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+font-weight: 600;
+color: #212529;
+}
+
+.card-subtitle {
+font-size: 0.9rem;
+}
+
+.btn-primary {
+border-radius: 8px;
+}
