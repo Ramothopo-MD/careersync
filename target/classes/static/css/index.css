@@ -1,0 +1,184 @@
+/* ================================
+   COLOR VARIABLES (footer palette)
+================================ */
+:root {
+    --footer-bg: #0f172a;        /* dark footer background */
+    --footer-text: #e5e7eb;      /* light footer text */
+    --accent-color: #2563eb;     /* primary blue */
+    --accent-light: #93c5fd;     /* lighter accent for highlights */
+}
+
+/* ================================
+   GLOBAL BODY
+================================ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* =========================
+   Hero Section Styles
+   ========================= */
+    .hero-image {
+    border-radius: 20px; /* adjust the value to your liking */
+    max-width: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* optional for nice depth */
+}
+/* =========================
+   Body & Fonts
+========================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+}
+
+/* =========================
+   Hero Section
+========================= */
+        /* =========================
+           Global
+        ========================= */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+        }
+
+        /* =========================
+           Hero Section
+        ========================= */
+        .hero-section {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 20px;
+            background-image: url("https://www.thebluediamondgallery.com/wooden-tile/images/work.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark overlay for readability */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+        }
+
+        /* Hero Content Card */
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 60px;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            max-width: 1100px;
+        }
+
+        /* =========================
+           Typography
+        ========================= */
+        .hero-title {
+            font-size: 3.1rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .orange {
+            color: #f97316;
+        }
+
+        .hero-title .blue {
+            color: #2563eb;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #374151;
+            max-width: 480px;
+        }
+
+        /* =========================
+           Buttons
+        ========================= */
+        .btn-primary {
+            background-color: #2563eb;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e40af;
+        }
+
+        .btn-outline-secondary {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+
+        /* =========================
+           Hero Image
+        ========================= */
+        .hero-image {
+            max-width: 100%;
+            border-radius: 22px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+        @media (max-width: 768px) {
+            .hero-section .container {
+                padding: 35px 25px;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+
+/* ================================
+   FEATURE CARDS
+================================ */
+.features {
+    background-color: #f1f5f9;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+
+

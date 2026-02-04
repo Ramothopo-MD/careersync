@@ -1,0 +1,27 @@
+<!-- navbar.html -->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top"
+     th:fragment="NavBar"
+     xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <span style="color:#2563eb; font-weight:700;">Career</span><span style="color:#f97316; font-weight:700;">Sync</span>
+
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Discover</a></li>
+                <li class="nav-item ms-3">
+                    <a class="btn btn-primary px-4" href="#">Get Started</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
