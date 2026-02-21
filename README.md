@@ -59,7 +59,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 ▶ How to Run
 
 1.  Clone the repository git clone
-    https://github.com/your-username/CareerSync.git
+    https://github.com/Ramothopo-MD/CareerSync.git
 
 2.  Build the project mvn clean install
 
