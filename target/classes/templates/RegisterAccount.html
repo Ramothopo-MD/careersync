@@ -52,11 +52,7 @@
         </div>
 
         <!-- Role -->
-        <select id="role" th:field="*{role}" class="form-select" required>
-            <option value="">Select a role</option>
-            <option value="USER">User</option>
-            <option value="ADMIN">Admin</option>
-        </select>
+        <input id="role" th:field="*{role}"  type="hidden" value="ADMIN">
 
 
         <!-- Email -->

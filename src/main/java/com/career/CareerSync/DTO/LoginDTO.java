@@ -2,8 +2,12 @@ package com.career.CareerSync.DTO;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class LoginDTO {
 
         @NotBlank(message = "Email is required")

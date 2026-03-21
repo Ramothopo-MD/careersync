@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Getter
@@ -27,6 +28,13 @@ public class MyUser {
     private String phoneNumber;
     @OneToOne
     private Security secInfo;
-    @Column(nullable = false,updatable = false)
+    @OneToMany
+    private List<Company> company;
+    @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Timestamp(System.currentTimeMillis());
+    }
 }

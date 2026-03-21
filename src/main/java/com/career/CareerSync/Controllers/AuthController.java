@@ -8,6 +8,7 @@ import com.career.CareerSync.Repositories.SecurityRepository;
 import com.career.CareerSync.Repositories.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,12 +50,12 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute("loginDTO") LoginDTO loginDTO,
-                        BindingResult bindingResult,
+                        BindingResult bindingResult, Authentication authentication,
                         Model model){
 
         // Validate empty fields
         if (bindingResult.hasErrors()) {
-            bindingResult.getAllErrors().forEach(error -> System.out.println(error));
+            bindingResult.getAllErrors();
             return "Login";
         }
 

@@ -1,55 +1,55 @@
 package com.career.CareerSync.Services;
 
+import com.career.CareerSync.Models.Company;
 import com.career.CareerSync.Models.Job;
-import com.career.CareerSync.Models.MyUser;
-import com.career.CareerSync.Repositories.AdminRepository;
 import com.career.CareerSync.Repositories.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class JobServices {
+
     private JobRepository jr;
-    private AdminRepository ar;
 
     @Autowired
     public JobServices(JobRepository jr) {
         this.jr = jr;
     }
 
-    public Job updateJob(Long id,Job job){
+    public Job updateJob(Long id, Job job){
 
-        Job existingJob=jr.findById(id).orElseThrow(()->new RuntimeException("The user you want to edit does not exist."));
+        Job existingJob = jr.findById(id)
+                .orElseThrow(() -> new RuntimeException("The job you want to edit does not exist."));
 
-        existingJob.setJobDescription(job.getJobDescription());
-        existingJob.setJobReq(job.getJobReq());
-        existingJob.setCompanyName(job.getCompanyName());
-        existingJob.setClosingDate(job.getClosingDate());
-        existingJob.setCompanyLogo(job.getCompanyLogo());
         existingJob.setTitle(job.getTitle());
+        existingJob.setJobCategory(job.getJobCategory());
+        existingJob.setJobType(job.getJobType());
+        existingJob.setJobDescription(job.getJobDescription());
+        existingJob.setJobRequirements(job.getJobRequirements());
+        existingJob.setJobQualifications(job.getJobQualifications());
+        existingJob.setLocation(job.getLocation());
+        existingJob.setClosingDate(job.getClosingDate());
+        existingJob.setCompany(job.getCompany());
 
         return jr.save(existingJob);
     }
 
-    public Job createJob(String title,String companyName,String companyLogo,String description,String jobReq){
-        Job newJob=new Job();
+    public Job createJob(Job job){
 
-        newJob.setTitle(title);
-        newJob.setCompanyName(companyName);
-        newJob.setCompanyLogo(companyLogo);
-        newJob.setJobDescription(description);
-        newJob.setJobReq(jobReq);
+        job.setPostedDate(new Timestamp(System.currentTimeMillis()));
 
-        return jr.save(newJob);
+        return jr.save(job);
     }
 
-    public void deleteJob(Long id,Long adminID) {
-        MyUser admin=ar.findById(adminID).orElseThrow(()->new RuntimeException("The admin with that id :"+adminID+" does not exist!"));
+    public void deleteJob(Long id){
+
         Job job = jr.findById(id)
                 .orElseThrow(() -> new RuntimeException("Job not found"));
+
         jr.delete(job);
     }
 
@@ -57,12 +57,11 @@ public class JobServices {
         return jr.findAll();
     }
 
-    public Optional<Job> findByRefNo(String refNo){
-
-        return Optional.ofNullable(jr.findByRefNo(refNo));
+    public Optional<Job> findById(Long id){
+        return jr.findById(id);
     }
-    public Optional<Job> findByTitle(String title){
 
-        return Optional.ofNullable(jr.findByTitle(title));
+    public Optional<Job> findByTitle(String title){
+        return jr.findByTitle(title);
     }
 }

@@ -1,0 +1,36 @@
+<div class="container mt-5" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="card shadow-lg p-4">
+
+        <!-- 🔐 Welcome -->
+        <h3 class="mb-3">
+            Welcome,
+            <span sec:authentication="name"></span> 👋
+        </h3>
+
+        <!-- 📧 Email -->
+        <p>
+            <strong>Email:</strong>
+            <span sec:authentication="name"></span>
+        </p>
+
+        <!-- 🧑 Role -->
+        <p>
+            <strong>Role:</strong>
+            <span sec:authentication="authorities"></span>
+        </p>
+
+        <!-- 🔓 Status -->
+        <p>
+            <strong>Status:</strong>
+            <span class="text-success">Authenticated</span>
+        </p>
+
+        <!-- 🚪 Logout -->
+        <form th:action="@{/auth/logout}" method="post">
+            <button class="btn btn-danger mt-3">Logout</button>
+        </form>
+
+    </div>
+
+</div>

@@ -36,43 +36,80 @@
 <div class="login-card">
     <h2>Login</h2>
 
-    <!-- General login error -->
-    <div class="text-danger text-center mb-3" th:if="${loginError}" th:text="${loginError}"></div>
+    <!-- ✅ LOGIN ERROR FROM SPRING SECURITY -->
+    <div class="alert alert-danger text-center"
+         th:if="${param.error}">
+        Invalid email or password
+    </div>
+
+    <!-- ✅ LOGOUT SUCCESS -->
+    <div class="alert alert-success text-center"
+         th:if="${param.logout}">
+        You have been logged out successfully
+    </div>
 
     <form th:action="@{/auth/login}" th:object="${loginDTO}" method="post">
+
         <!-- Email / Username -->
         <div class="mb-3">
             <label for="email" class="form-label">Email or Username</label>
-            <input type="text" id="email" th:field="*{email}" class="form-control" placeholder="Enter your email or username" required>
-            <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+            <input type="text"
+                   id="email"
+                   th:field="*{email}"
+                   class="form-control"
+                   placeholder="Enter your email or username">
+
+            <!-- ✅ FIELD ERROR -->
+            <p class="text-danger"
+               th:if="${#fields.hasErrors('email')}"
+               th:errors="*{email}">
+            </p>
         </div>
 
         <!-- Password -->
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" id="password" th:field="*{password}" class="form-control"
-                   aria-describedby="passwordHelpBlock" placeholder="Enter your password" required>
-            <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-            <div id="passwordHelpBlock" class="form-text">
-                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces or special characters.
+
+            <input type="password"
+                   id="password"
+                   th:field="*{password}"
+                   class="form-control"
+                   placeholder="Enter your password">
+
+            <!-- ✅ FIELD ERROR -->
+            <p class="text-danger"
+               th:if="${#fields.hasErrors('password')}"
+               th:errors="*{password}">
+            </p>
+
+            <div class="form-text">
+                Your password must be 8-20 characters long, contain letters and numbers.
             </div>
         </div>
 
         <!-- Remember Me -->
         <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" th:field="*{rememberMe}" id="rememberMe">
+            <input class="form-check-input"
+                   type="checkbox"
+                   th:field="*{rememberMe}"
+                   id="rememberMe">
+
             <label class="form-check-label" for="rememberMe">
                 Remember me
             </label>
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <button type="submit" class="btn btn-primary w-100">
+            Login
+        </button>
 
         <!-- Forgot Password -->
         <div class="text-center mt-3">
             <a href="#" class="text-decoration-none">Forgot password?</a>
         </div>
+
     </form>
 </div>
 

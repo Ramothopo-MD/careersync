@@ -29,7 +29,7 @@ public class MyUserDetailsService implements UserDetailsService {
         return User.builder()
                 .username(userObj.getEmail())
                 .password(userObj.getSecInfo().getPasswordHash())
-                //.roles(userObj.getRole().name())  // enable if role exists
+                .roles(userObj.getRole().name())
                 .build();
     }
 }

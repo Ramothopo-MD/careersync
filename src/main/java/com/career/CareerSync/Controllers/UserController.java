@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/careerSync")
 public class UserController {
-@GetMapping("/dashboard")
-    public String getDashboard( Model model){
+@GetMapping("/user/dashboard")
+    public String getUserDashboard( Model model){
 
     model.addAttribute("loginDTO",new LoginDTO());
 
     return "UserDashboard";
 }
+
 }
